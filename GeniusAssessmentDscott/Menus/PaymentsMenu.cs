@@ -28,7 +28,10 @@ namespace GeniusAssessmentDscott.Menus
 
         public override void startParse(string filepath)
         {
+            //Read the payments info from the user specified file
             readPaymentCSV = new ReadPaymentCSV(filepath);
+            
+            //Query the database to check that users exist, if they do not then return to the menu in line of the requirement of not allowing payments to be entered without users existing
             CountUsers getUserCount = new CountUsers();
             commandManager.InvokeCommand(getUserCount);
             if (getUserCount.getNumberOfUsers() < 1)
@@ -38,12 +41,14 @@ namespace GeniusAssessmentDscott.Menus
             }
 
            
-
+            //Write the payments to the db
             commandManager.InvokeCommand(new WritePaymentsToDB(readPaymentCSV.payments));
 
+            //Query the database for a list of all the payments to display to the user.
             ReadPaymentFromDB read = new ReadPaymentFromDB();
             commandManager.InvokeCommand(read);
 
+            //Clear console for convenience
             try
             {
                 Console.Clear();
@@ -58,11 +63,14 @@ namespace GeniusAssessmentDscott.Menus
             }
             Console.WriteLine("\n--------------------");
 
+            //Get users from the database
             ReadUserFromDB readUserFromDB = new ReadUserFromDB();
             commandManager.InvokeCommand(readUserFromDB);
+            //Get payments from the database using the relations between users and their payments and then store these relations in the user objects
             ReadUserPayments readUserPayments = new ReadUserPayments(readUserFromDB.users);
             commandManager.InvokeCommand(readUserPayments);
 
+            //Display this info
             Console.WriteLine("Users and the payments they have made:\n");
             foreach (User u in readUserPayments.users)
             {
