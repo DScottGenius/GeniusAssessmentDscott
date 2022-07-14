@@ -16,4 +16,13 @@
     <ProjectReference Include="..\GeniusAssessmentDscott\GeniusAssessmentDscott.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="CSVs\direct payments 11042022.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="CSVs\placement 211214.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

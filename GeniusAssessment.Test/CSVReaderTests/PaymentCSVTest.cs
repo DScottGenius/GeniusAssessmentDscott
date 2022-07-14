@@ -1,7 +1,10 @@
 ﻿using GeniusAssessmentDscott.CSV_Reader;
 using GeniusAssessmentDscott.Entities;
 using NUnit.Framework;
+using System;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 
 namespace GeniusAssessment.Test.CSVReaderTests
 {
@@ -9,10 +12,13 @@ namespace GeniusAssessment.Test.CSVReaderTests
     {
         private ReadPaymentCSV readPaymentCSV;
 
+        
+
+
 
         [Test]
-        [TestCase(@"C:\Users\dscott\Documents\Training\Assessment\direct payments 11042022.csv", ExpectedResult = 5, TestName = "Test payments with valid file")] //2 entries should be disqualified from the file for invalid data
-        [TestCase(@"C:\Users\dscott\Documents\Training\Assessment\placement 211214.csv", ExpectedResult = 0, TestName = "Test payments added with invalid file")]
+        [TestCase(@"CSVs\direct payments 11042022.csv", ExpectedResult = 5, TestName = "Test payments with valid file")] //2 entries should be disqualified from the file for invalid data
+        [TestCase(@"CSVs\placement 211214.csv", ExpectedResult = 0, TestName = "Test payments added with invalid file")]
         public int CheckUsersAdded(string filename)
         {
             readPaymentCSV = new ReadPaymentCSV(filename);
@@ -42,7 +48,7 @@ namespace GeniusAssessment.Test.CSVReaderTests
         [Test]
         public void CheckNoInvaidPayments()
         {
-            readPaymentCSV = new ReadPaymentCSV(@"C:\Users\dscott\Documents\Training\Assessment\direct payments 11042022.csv");
+            readPaymentCSV = new ReadPaymentCSV(@"CSVs\direct payments 11042022.csv");
 
             var sut = readPaymentCSV.payments;
             bool InvalidData = false;
@@ -58,5 +64,9 @@ namespace GeniusAssessment.Test.CSVReaderTests
 
             Assert.That(InvalidData, Is.False);
         }
+
+
     }
+
+
 }
