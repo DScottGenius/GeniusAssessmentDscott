@@ -2,7 +2,7 @@
 using System;
 using System.Globalization;
 
-namespace GeniusAssessmentDscott.CSV_Reader
+namespace GeniusAssessmentDscott.Core.CSV_Reader
 {
     public abstract class ReadCSV
     {

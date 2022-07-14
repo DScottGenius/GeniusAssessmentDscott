@@ -1,5 +1,4 @@
-﻿using GeniusAssessmentDscott.Commands;
-using System;
+﻿using System;
 using System.Data.SqlClient;
 using System.IO;
 
@@ -8,13 +7,11 @@ namespace GeniusAssessmentDscott.Menus
     public abstract class Menu
     {
         protected string filePath;
-        protected ICommandManager commandManager;
         protected bool fileExists;
 
         //The menus (both payments and user) will ask the user to input a filepath to be imported into the database
         public Menu(string fileIn)
         {
-            commandManager = new CommandManager();
             Console.WriteLine("Please input a filepath or type 'q' to return to base menu");
             fileExists = false;
             while (true)
@@ -73,7 +70,7 @@ namespace GeniusAssessmentDscott.Menus
             }
 
         }
-        
+
         //Subclasses will choose what parse to impelement and initiate inserting the data to the database
         public abstract void startParse(string filepath);
     }

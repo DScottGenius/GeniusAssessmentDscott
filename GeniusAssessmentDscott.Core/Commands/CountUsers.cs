@@ -1,8 +1,9 @@
-﻿using GeniusAssessmentDscott.Data;
+﻿using GeniusAssessmentDscott.Core.Commands;
+using GeniusAssessmentDscott.Data.Database;
 using System;
 using System.Data.SqlClient;
 
-namespace GeniusAssessmentDscott.Commands
+namespace GeniusAssessmentDscott.Core.Commands
 {
     class CountUsers : ICommand
     {

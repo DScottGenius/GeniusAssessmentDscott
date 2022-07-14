@@ -1,4 +1,4 @@
-﻿namespace GeniusAssessmentDscott.Entities
+﻿namespace GeniusAssessmentDscott.Data.Entities
 {
     //This Class corresponds to entities that will be in the 
     public class Payment

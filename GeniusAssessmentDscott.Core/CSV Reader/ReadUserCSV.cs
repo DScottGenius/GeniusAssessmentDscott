@@ -1,10 +1,10 @@
-﻿using GeniusAssessmentDscott.Entities;
+﻿using GeniusAssessmentDscott.Data.Entities;
 using Microsoft.VisualBasic.FileIO;
 using System;
 using System.Collections.Generic;
 using System.Net.Mail;
 
-namespace GeniusAssessmentDscott.CSV_Reader
+namespace GeniusAssessmentDscott.Core.CSV_Reader
 {
     public class ReadUserCSV : ReadCSV
     {

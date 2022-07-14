@@ -1,10 +1,8 @@
-﻿using GeniusAssessmentDscott.CSV_Reader;
-using GeniusAssessmentDscott.Entities;
+﻿using GeniusAssessmentDscott.Core.CSV_Reader;
+using GeniusAssessmentDscott.Data.Entities;
 using NUnit.Framework;
 using System;
-using System.IO;
 using System.Linq;
-using System.Reflection;
 
 namespace GeniusAssessment.Test.CSVReaderTests
 {
@@ -12,7 +10,7 @@ namespace GeniusAssessment.Test.CSVReaderTests
     {
         private ReadPaymentCSV readPaymentCSV;
 
-        
+
 
 
 
@@ -33,7 +31,7 @@ namespace GeniusAssessment.Test.CSVReaderTests
             var sut = readPaymentCSV.payments.ElementAt(0);
             bool mismatch = true;
 
-            if (sut.AdeptReference.ToLower()!= "a111631" || sut.amount != 20 || sut.date != "2022/4/11" || sut.source.ToLower() != "website realex" || sut.method.ToLower() != "website")
+            if (sut.AdeptReference.ToLower() != "a111631" || sut.amount != 20 || sut.date != "2022/4/11" || sut.source.ToLower() != "website realex" || sut.method.ToLower() != "website")
             {
                 mismatch = true;
             }
@@ -54,7 +52,7 @@ namespace GeniusAssessment.Test.CSVReaderTests
             bool InvalidData = false;
             foreach (Payment p in sut)
             {
-                
+
                 if (p.AdeptReference.Count() > 7)
                 {
                     InvalidData = true;

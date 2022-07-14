@@ -1,8 +1,8 @@
 ﻿using System.Data.SqlClient;
 
-namespace GeniusAssessmentDscott.Data
+namespace GeniusAssessmentDscott.Data.Database
 {
-    class DatabaseConnect
+    public class DatabaseConnect
     {
         readonly string ConnectionString;
         public SqlConnection connection

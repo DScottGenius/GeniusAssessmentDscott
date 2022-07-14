@@ -1,4 +1,4 @@
-﻿namespace GeniusAssessmentDscott.Commands
+﻿namespace GeniusAssessmentDscott.Core.Commands
 {
     public interface ICommandManager
     {

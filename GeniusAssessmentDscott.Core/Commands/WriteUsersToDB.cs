@@ -1,11 +1,12 @@
-﻿using GeniusAssessmentDscott.Data;
-using GeniusAssessmentDscott.Entities;
+﻿using GeniusAssessmentDscott.Core.Commands;
+using GeniusAssessmentDscott.Data.Database;
+using GeniusAssessmentDscott.Data.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 
-namespace GeniusAssessmentDscott.Commands
+namespace GeniusAssessmentDscott.Core.Commands
 {
     class WriteUsersToDB : ICommand
     {

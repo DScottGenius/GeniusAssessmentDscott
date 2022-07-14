@@ -1,4 +1,4 @@
-﻿namespace GeniusAssessmentDscott.Entities
+﻿namespace GeniusAssessmentDscott.Data.Entities
 {
     //Address corresponds to entities from the address table
     public class Address

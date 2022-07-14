@@ -1,5 +1,5 @@
-﻿using GeniusAssessmentDscott.CSV_Reader;
-using GeniusAssessmentDscott.Entities;
+﻿using GeniusAssessmentDscott.Core.CSV_Reader;
+using GeniusAssessmentDscott.Data.Entities;
 using NUnit.Framework;
 using System.Linq;
 
@@ -64,7 +64,7 @@ namespace GeniusAssessment.Test.CSVReaderTests
                 {
                     foreach (string p in u.Phones)
                     {
-                        if (p.Length > 10 || p.Length == 0 )
+                        if (p.Length > 10 || p.Length == 0)
                         {
                             InvalidData = true;
                             break;

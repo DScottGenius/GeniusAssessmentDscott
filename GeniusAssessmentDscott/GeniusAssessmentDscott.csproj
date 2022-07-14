@@ -6,7 +6,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="DevExpress.Xpo" Version="20.1.6" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GeniusAssessmentDscott.Core\GeniusAssessmentDscott.Core.csproj" />
+    <ProjectReference Include="..\GeniusAssessmentDscott.Data\GeniusAssessmentDscott.Data.csproj" />
   </ItemGroup>
 
 </Project>

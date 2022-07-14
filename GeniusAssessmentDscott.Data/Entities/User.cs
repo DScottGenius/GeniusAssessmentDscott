@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace GeniusAssessmentDscott.Entities
+namespace GeniusAssessmentDscott.Data.Entities
 {
     //The user class corresponds to any user to be stored or received from the database. Will hold associated data from address and phone tables as well
     public class User
