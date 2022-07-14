@@ -30,7 +30,13 @@ namespace GeniusAssessmentDscott.Menus
         {
             //Read the payments info from the user specified file
             readPaymentCSV = new ReadPaymentCSV(filepath);
-            
+
+            if (readPaymentCSV.payments.Count == 0)
+            {
+                Console.WriteLine($"No payments were obtained from the file {filepath}. Please check the format of the file");
+                return;
+            }
+
             //Query the database to check that users exist, if they do not then return to the menu in line of the requirement of not allowing payments to be entered without users existing
             CountUsers getUserCount = new CountUsers();
             commandManager.InvokeCommand(getUserCount);

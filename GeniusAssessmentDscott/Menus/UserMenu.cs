@@ -30,6 +30,12 @@ namespace GeniusAssessmentDscott.Menus
             //Get the users from the CSV file the user puts in
             readUserCSV = new ReadUserCSV(filepath);
 
+            if (readUserCSV.Users.Count == 0)
+            {
+                Console.WriteLine($"No users were obtained from the file {filepath}. Please check the format of the file");
+                return;
+            }
+
             //invoke the command to write the users from the csv into the database
             commandManager.InvokeCommand(new WriteUsersToDB(readUserCSV.Users));
 
