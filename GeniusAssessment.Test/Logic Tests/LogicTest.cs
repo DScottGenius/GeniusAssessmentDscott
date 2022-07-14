@@ -3,7 +3,7 @@ using GeniusAssessmentDscott.Logic;
 using GeniusAssessmentDscott.Menus;
 using NUnit.Framework;
 
-namespace GeniusAssessment.Test.Menu_Tests
+namespace GeniusAssessment.Test.Logic_Tests
 {
     public class dummyManager : ICommandManager
     {
