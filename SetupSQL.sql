@@ -6,10 +6,10 @@ USE MiniAdeptDB;
 CREATE TABLE [MiniAdeptDB].[dbo].[user](
 	debt_type varchar(20),
 	account_number varchar(20) NOT NULL UNIQUE,
-	account_name varchar(50),
+	account_name varchar(50) NOT NULL,
 	date_of_birth date,
 	balance decimal(16,2),
-	adept_ref varchar(7)
+	adept_ref varchar(7) NULL
 );
 
 CREATE TABLE [MiniAdeptDB].[dbo].[email](
@@ -29,11 +29,12 @@ CREATE TABLE [MiniAdeptDB].[dbo].[address](
 	postcode varchar(15) NOT NULL
 );
 CREATE TABLE [MiniAdeptDB].[dbo].[payment](
+	payment_id int IDENTITY(1,1),
 	adept_ref varchar(7) NOT NULL,
-	amount decimal(16,2),
+	amount decimal(16,2) NOT NULL,
 	effective_date date NOT NULL,
-	[source] varchar(20),
-	method varchar (20)
+	[source] varchar(20)NULL,
+	method varchar (20) NULL
 );
 
 ALTER TABLE [MiniAdeptDB].[dbo].[user]
@@ -52,7 +53,7 @@ ADD CONSTRAINT Pk_address PRIMARY KEY (address_owner, line_1, postcode),
 	CONSTRAINT Fk_address_user FOREIGN KEY(address_owner) REFERENCES [user](account_number) ON DELETE CASCADE;
 
 ALTER TABLE [MiniAdeptDB].[dbo].[payment]
-ADD CONSTRAINT Pk_payment PRIMARY KEY (adept_ref, effective_date);
+ADD CONSTRAINT Pk_payment PRIMARY KEY (payment_id);
 
 
 --The following state will insert a user that will end up linked to the payments

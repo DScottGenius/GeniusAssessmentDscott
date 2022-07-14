@@ -31,7 +31,7 @@ namespace GeniusAssessmentDscott.Commands
 
         public void Execute()
         {
-            string selectPayments = "SELECT p.adept_ref, p.amount, p.effective_date, p.method, p.[source] FROM [MiniAdeptDB].[dbo].[payment] p;";
+            string selectPayments = "SELECT p.adept_ref, p.amount, p.effective_date, p.method, p.[source], p.payment_id FROM [MiniAdeptDB].[dbo].[payment] p;";
 
             using (connection)
             {
@@ -49,6 +49,8 @@ namespace GeniusAssessmentDscott.Commands
                         string source = reader.GetString(3);
                         string method = reader.GetString(4);
                         Payment p = new Payment(adeptRef, amount, effDate, source, method);
+
+                        p.id = reader.GetInt32(5);
 
                         payments.Add(p);
                     }

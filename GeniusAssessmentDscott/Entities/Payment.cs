@@ -28,6 +28,12 @@
             get;
         }
 
+        public int id
+        {
+            get;
+            set;
+        }
+
 
         public Payment(string adeptReference, double amount, string date, string source, string method)
         {
@@ -40,7 +46,7 @@
 
         public override string ToString()
         {
-            string result = $"Adept Reference: {AdeptReference}, Amount: {amount}, Effective Date: {date}, Source: {source}, Method: {method}";
+            string result = $"ID: {id} Adept Reference: {AdeptReference}, Amount: {amount}, Effective Date: {date}, Source: {source}, Method: {method}";
             return result;
         }
     }
