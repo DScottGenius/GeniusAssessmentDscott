@@ -26,7 +26,7 @@ namespace GeniusAssessment.Test.CSVReaderTests
         [Test]
         public void CheckPaymentIntegrity()
         {
-            readPaymentCSV = new ReadPaymentCSV(@"C:\Users\dscott\Documents\Training\Assessment\direct payments 11042022.csv");
+            readPaymentCSV = new ReadPaymentCSV(@"CSVs\direct payments 11042022.csv");
             //Test the first entry added in list to the data manually read from the first payment in the file
             var sut = readPaymentCSV.payments.ElementAt(0);
             bool mismatch = true;
