@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 
 namespace GeniusAssessmentDscott.Core.Commands
 {
-    class WritePaymentsToDB : DatabaseAccessCommand, ICommand
+    public class WritePaymentsToDB : DatabaseAccessCommand, ICommand
     {
         private SqlConnection connection;
         private DatabaseConnect databaseConnect;

@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace GeniusAssessmentDscott.Core.Commands
 {
-    class WriteUsersToDB :DatabaseAccessCommand, ICommand
+    public class WriteUsersToDB :DatabaseAccessCommand, ICommand
     {
         private SqlConnection connection;
         private DatabaseConnect databaseConnect;

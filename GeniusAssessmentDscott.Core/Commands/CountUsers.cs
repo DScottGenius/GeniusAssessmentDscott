@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 
 namespace GeniusAssessmentDscott.Core.Commands
 {
-    class CountUsers : DatabaseAccessCommand, ICommand
+    public class CountUsers : DatabaseAccessCommand, ICommand
     {
         private SqlConnection connection;
         private DatabaseConnect databaseConnect;

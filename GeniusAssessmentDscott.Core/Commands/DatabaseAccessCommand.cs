@@ -8,7 +8,8 @@ namespace GeniusAssessmentDscott.Core.Commands
     public abstract class DatabaseAccessCommand
     {
         protected IConfiguration configuration;
-        protected string ConnectionString;
+        public string ConnectionString { get; protected set; }
+
         public DatabaseAccessCommand()
         {
             IConfiguration config = new ConfigurationBuilder().AddJsonFile("appsettings.json").AddEnvironmentVariables().Build();
