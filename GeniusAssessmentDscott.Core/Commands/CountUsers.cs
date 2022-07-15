@@ -1,11 +1,10 @@
-﻿using GeniusAssessmentDscott.Core.Commands;
-using GeniusAssessmentDscott.Data.Database;
+﻿using GeniusAssessmentDscott.Data.Database;
 using System;
 using System.Data.SqlClient;
 
 namespace GeniusAssessmentDscott.Core.Commands
 {
-    class CountUsers : ICommand
+    class CountUsers : DatabaseAccessCommand, ICommand
     {
         private SqlConnection connection;
         private DatabaseConnect databaseConnect;
@@ -13,9 +12,9 @@ namespace GeniusAssessmentDscott.Core.Commands
         int userCount;
 
 
-        public CountUsers()
+        public CountUsers() : base()
         {
-            databaseConnect = new DatabaseConnect();
+            databaseConnect = new DatabaseConnect(ConnectionString);
             connection = databaseConnect.connection;
             userCount = 0;
 

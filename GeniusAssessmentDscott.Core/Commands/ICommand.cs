@@ -1,4 +1,6 @@
-﻿namespace GeniusAssessmentDscott.Core.Commands
+﻿using Microsoft.Extensions.Configuration;
+
+namespace GeniusAssessmentDscott.Core.Commands
 {
     public interface ICommand
     {

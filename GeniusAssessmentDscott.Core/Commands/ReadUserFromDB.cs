@@ -1,5 +1,4 @@
-﻿using GeniusAssessmentDscott.Core.Commands;
-using GeniusAssessmentDscott.Data.Database;
+﻿using GeniusAssessmentDscott.Data.Database;
 using GeniusAssessmentDscott.Data.Entities;
 using System;
 using System.Collections.Generic;
@@ -7,7 +6,7 @@ using System.Data.SqlClient;
 
 namespace GeniusAssessmentDscott.Core.Commands
 {
-    class ReadUserFromDB : ICommand
+    class ReadUserFromDB : DatabaseAccessCommand, ICommand
     {
 
         DatabaseConnect dbConnect;
@@ -18,9 +17,9 @@ namespace GeniusAssessmentDscott.Core.Commands
         }
 
 
-        public ReadUserFromDB()
+        public ReadUserFromDB() :base()
         {
-            dbConnect = new DatabaseConnect();
+            dbConnect = new DatabaseConnect(ConnectionString);
             connection = dbConnect.connection;
             users = new List<User>();
         }

@@ -1,7 +1,6 @@
 ﻿using GeniusAssessmentDscott.Core.CSV_Reader;
 using GeniusAssessmentDscott.Data.Entities;
 using NUnit.Framework;
-using System;
 using System.Linq;
 
 namespace GeniusAssessment.Test.CSVReaderTests

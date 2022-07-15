@@ -1,6 +1,5 @@
 ﻿using GeniusAssessmentDscott.Core.Commands;
 using GeniusAssessmentDscott.Logic;
-using GeniusAssessmentDscott.Menus;
 using NUnit.Framework;
 
 namespace GeniusAssessment.Test.Logic_Tests

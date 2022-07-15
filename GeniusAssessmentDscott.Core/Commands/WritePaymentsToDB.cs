@@ -1,5 +1,4 @@
-﻿using GeniusAssessmentDscott.Core.Commands;
-using GeniusAssessmentDscott.Data.Database;
+﻿using GeniusAssessmentDscott.Data.Database;
 using GeniusAssessmentDscott.Data.Entities;
 using System;
 using System.Collections.Generic;
@@ -7,15 +6,15 @@ using System.Data.SqlClient;
 
 namespace GeniusAssessmentDscott.Core.Commands
 {
-    class WritePaymentsToDB : ICommand
+    class WritePaymentsToDB : DatabaseAccessCommand, ICommand
     {
         private SqlConnection connection;
         private DatabaseConnect databaseConnect;
         private List<Payment> payments;
 
-        public WritePaymentsToDB(List<Payment> paymentsIn)
+        public WritePaymentsToDB(List<Payment> paymentsIn) :base()
         {
-            databaseConnect = new DatabaseConnect();
+            databaseConnect = new DatabaseConnect(ConnectionString);
             connection = databaseConnect.connection;
 
             if (paymentsIn != null)
