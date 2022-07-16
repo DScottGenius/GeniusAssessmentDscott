@@ -7,13 +7,13 @@ using System.Linq;
 
 namespace GeniusAssessmentDscott.Core.Commands
 {
-    public class WriteUsersToDB :DatabaseAccessCommand, ICommand
+    public class WriteUsersToDB : DatabaseAccessCommand, ICommand
     {
         private SqlConnection connection;
         private DatabaseConnect databaseConnect;
         private List<User> users;
 
-        public WriteUsersToDB(List<User> usersIn) :base()
+        public WriteUsersToDB(List<User> usersIn) : base()
         {
             databaseConnect = new DatabaseConnect(ConnectionString);
             connection = databaseConnect.connection;

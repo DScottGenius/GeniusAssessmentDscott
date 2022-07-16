@@ -12,7 +12,7 @@ namespace GeniusAssessmentDscott.Core.Commands
         private DatabaseConnect databaseConnect;
         private List<Payment> payments;
 
-        public WritePaymentsToDB(List<Payment> paymentsIn) :base()
+        public WritePaymentsToDB(List<Payment> paymentsIn) : base()
         {
             databaseConnect = new DatabaseConnect(ConnectionString);
             connection = databaseConnect.connection;

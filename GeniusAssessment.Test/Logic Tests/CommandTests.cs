@@ -1,9 +1,6 @@
 ﻿using GeniusAssessmentDscott.Core.Commands;
-using GeniusAssessmentDscott.Data.Entities;
 using NUnit.Framework;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace GeniusAssessment.Test.Logic_Tests
 {

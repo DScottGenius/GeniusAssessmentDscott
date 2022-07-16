@@ -17,7 +17,7 @@ namespace GeniusAssessmentDscott.Core.Commands
         }
 
 
-        public ReadUserFromDB() :base()
+        public ReadUserFromDB() : base()
         {
             dbConnect = new DatabaseConnect(ConnectionString);
             connection = dbConnect.connection;

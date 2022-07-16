@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GeniusAssessmentDscott\GeniusAssessmentDscott.csproj" />
+    <ProjectReference Include="..\GeniusAssessmentDscott\GeniusAssessmentDscottConsole.csproj" />
   </ItemGroup>
 
   <ItemGroup>
