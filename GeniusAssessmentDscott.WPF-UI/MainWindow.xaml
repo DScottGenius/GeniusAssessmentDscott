@@ -34,8 +34,8 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Label Grid.Column="0" Margin="10, 5" Content="What would you like to import:"/>
-                <CheckBox x:Name="chkUsers" Content="Users" Grid.Column="1" Margin="10,10" Checked="chkUsers_Checked" Unchecked="chkUsers_Checked" IsChecked="{Binding UserChecked, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                <CheckBox x:Name="chkPayments" Content="Payments" Grid.Column="2" Margin="10,10" Checked="chkPayments_Checked" Unchecked="chkPayments_Checked" IsChecked="{Binding PaymentChecked, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <RadioButton x:Name="chkUsers" Content="Users" Grid.Column="1" Margin="10,10" Command="{Binding UserCheckedCommand}" IsChecked="{Binding UserChecked, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <RadioButton x:Name="chkPayments" Content="Payments" Grid.Column="2" Margin="10,10" Command="{Binding PaymentCheckedCommand}" IsChecked="{Binding PaymentChecked, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                 
             </Grid>
             <Grid Grid.Row="1">
@@ -46,7 +46,7 @@
                 </Grid.ColumnDefinitions>
                 <Label Content="Enter File Path:" Grid.Column="0" Margin="10,10,10,0"/>
                 <TextBox Grid.Column="1" Width="500" Margin="10,10,10,10" VerticalContentAlignment="Center" Text="{Binding FilePath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                <Button x:Name="btnBrowse" Content="Browse" Grid.Column="2" Height="30" Width="Auto" Margin="10 10 10 10" HorizontalAlignment="Center" Padding="10,5,10,5" Click="btnBrowse_Click"></Button>
+                <Button x:Name="btnBrowse" Content="Browse" Grid.Column="2" Height="30" Width="Auto" Margin="10 10 10 10" HorizontalAlignment="Center" Padding="10,5,10,5" Command="{Binding BrowseButtonClicked}"></Button>
                 
             </Grid>
             <Grid Grid.Row="2">
@@ -55,7 +55,7 @@
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Button x:Name="btnSubmit" Grid.Column="1" Content="Submit" Width="Auto" Height="Auto" Padding="10" VerticalAlignment="Center" HorizontalAlignment="Center" Click="btnSubmit_Click"/>
+                <Button x:Name="btnSubmit" Grid.Column="1" Content="Submit" Width="Auto" Height="Auto" Padding="10" VerticalAlignment="Center" HorizontalAlignment="Center" Command="{Binding SubmitButtonClicked}"/>
             </Grid>
         </Grid>
     </Grid>

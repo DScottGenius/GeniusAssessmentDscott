@@ -1,7 +1,9 @@
 ﻿using GeniusAssessmentDscott.Data.Entities;
 using GeniusAssessmentDscott.WPF_UI.Data;
+using GeniusAssessmentDscott.WPF_UI.WPF_Commands;
 using Microsoft.Win32;
 using System.Collections.ObjectModel;
+using System.Windows.Input;
 
 namespace GeniusAssessmentDscott.WPF_UI.ViewModel
 {
@@ -17,8 +19,7 @@ namespace GeniusAssessmentDscott.WPF_UI.ViewModel
             set
             {
                 userChecked = value;
-                paymentChecked = !value;
-                OnPropertyChanged(nameof(paymentChecked));
+                OnPropertyChanged(nameof(PaymentChecked));
             }
         }
 
@@ -30,8 +31,7 @@ namespace GeniusAssessmentDscott.WPF_UI.ViewModel
             set
             {
                 paymentChecked = value;
-                userChecked = !value;
-                OnPropertyChanged(nameof(userChecked));
+                OnPropertyChanged(nameof(UserChecked));
             }
         }
 
@@ -70,6 +70,13 @@ namespace GeniusAssessmentDscott.WPF_UI.ViewModel
         }
 
 
+        //Buttons
+        public ICommand SubmitButtonClicked { get; set; }
+        public ICommand BrowseButtonClicked { get; set; }
+
+        //Radio Buttons
+        public ICommand UserCheckedCommand { get; set; }
+        public ICommand PaymentCheckedCommand { get; set; }
 
         public MainViewModel(IDataService dataServiceIn)
         {
@@ -77,6 +84,12 @@ namespace GeniusAssessmentDscott.WPF_UI.ViewModel
             Users = new ObservableCollection<User>();
             Payments = new ObservableCollection<Payment>();
             FilePath = "";
+
+            SubmitButtonClicked = new RelayCommand(ProcessData, canSubmit);
+            BrowseButtonClicked = new RelayCommand(BrowseFile, canBrowse);
+            
+            UserCheckedCommand = new RelayCommand(userBoxChecked, canCheck);
+            PaymentCheckedCommand = new RelayCommand(paymentBoxChecked, canCheck);
 
             userChecked = true;
             paymentChecked = false;
@@ -87,7 +100,7 @@ namespace GeniusAssessmentDscott.WPF_UI.ViewModel
 
         }
 
-        public void BrowseFile()
+        public void BrowseFile(object value)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             if (openFileDialog.ShowDialog() == true)
@@ -96,14 +109,8 @@ namespace GeniusAssessmentDscott.WPF_UI.ViewModel
             }
         }
 
-        public void ProcessData()
+        public void ProcessData(object value)
         {
-            if (FilePath.Length == 0)
-            {
-                Output = "Please select a file to import first";
-                return;
-            }
-
             if (userChecked)
             {
                 ProcessUser();
@@ -182,6 +189,39 @@ namespace GeniusAssessmentDscott.WPF_UI.ViewModel
             {
                 Output += $"{u.ToString()}\n";
             }
+        }
+
+        private bool canSubmit(object value)
+        {
+            if (filePath == null || filePath == "")
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        private bool canBrowse(object value)
+        {
+            return true;
+        }
+
+        private bool canCheck(object value)
+        {
+            return true;
+        }
+
+        private void userBoxChecked(object value)
+        {
+            PaymentChecked = false;
+            UserChecked = true;
+        }
+        private void paymentBoxChecked(object value)
+        {
+            UserChecked = false;
+            PaymentChecked = true;
         }
     }
 }
