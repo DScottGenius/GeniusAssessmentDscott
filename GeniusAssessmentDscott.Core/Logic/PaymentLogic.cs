@@ -1,4 +1,5 @@
-﻿using GeniusAssessmentDscott.Core.Commands;
+﻿using DSLogger;
+using GeniusAssessmentDscott.Core.Commands;
 using GeniusAssessmentDscott.Core.CSV_Reader;
 using GeniusAssessmentDscott.Data.Entities;
 using System.Collections.Generic;
@@ -46,8 +47,10 @@ namespace GeniusAssessmentDscott.Logic
                 //Get the users from the CSV file the user puts in
                 ReadPayment = new ReadPaymentCSV(Filepath);
             }
-            catch (FileNotFoundException)
+            catch (FileNotFoundException e)
             {
+                Logger log = new Logger("", nameof(PaymentLogic));
+                log.WriteToLog(e.Message);
                 success = false;
                 return;
             }

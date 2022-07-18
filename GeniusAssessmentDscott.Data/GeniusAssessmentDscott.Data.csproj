@@ -8,4 +8,10 @@
     <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="DSLogger">
+      <HintPath>..\..\DSLogger\DSLogger\bin\Debug\netcoreapp3.1\DSLogger.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

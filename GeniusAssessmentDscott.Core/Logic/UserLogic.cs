@@ -1,4 +1,5 @@
-﻿using GeniusAssessmentDscott.Core.Commands;
+﻿using DSLogger;
+using GeniusAssessmentDscott.Core.Commands;
 using GeniusAssessmentDscott.Core.CSV_Reader;
 using GeniusAssessmentDscott.Data.Entities;
 using System.Collections.Generic;
@@ -38,8 +39,10 @@ namespace GeniusAssessmentDscott.Logic
             {
                 readUserCSV = new ReadUserCSV(Filepath);
             }
-            catch (FileNotFoundException)
+            catch (FileNotFoundException e)
             {
+                Logger log = new Logger("", nameof(UserLogic));
+                log.WriteToLog(e.Message);
                 success = false;
                 return;
             }

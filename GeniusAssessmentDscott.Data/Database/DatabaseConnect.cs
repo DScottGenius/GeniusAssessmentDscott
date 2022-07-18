@@ -1,4 +1,5 @@
-﻿using System.Data.SqlClient;
+﻿using DSLogger;
+using System.Data.SqlClient;
 
 namespace GeniusAssessmentDscott.Data.Database
 {
@@ -38,8 +39,10 @@ namespace GeniusAssessmentDscott.Data.Database
                 canConnect = true;
                 connection.Close();
             }
-            catch (System.Exception)
+            catch (System.Exception e)
             {
+                Logger log = new Logger("", nameof(DatabaseConnect));
+                log.WriteToLog(e.Message);
                 connection.Close();
                 canConnect = false;
                 throw;

@@ -1,4 +1,5 @@
-﻿using GeniusAssessmentDscott.Data.Entities;
+﻿using DSLogger;
+using GeniusAssessmentDscott.Data.Entities;
 using GeniusAssessmentDscott.WPF_UI.Data;
 using GeniusAssessmentDscott.WPF_UI.WPF_Commands;
 using Microsoft.Win32;
@@ -123,7 +124,7 @@ namespace GeniusAssessmentDscott.WPF_UI.ViewModel
                     ProcessPayment();
                 }
             }
-            catch (SqlException)
+            catch (SqlException e)
             {
                 Output = "There was an issue connecting to the server, please ensure you are connected to the internet. If this issue persists contact your administrator";
             }

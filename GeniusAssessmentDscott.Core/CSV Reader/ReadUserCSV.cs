@@ -1,4 +1,5 @@
-﻿using GeniusAssessmentDscott.Data.Entities;
+﻿using DSLogger;
+using GeniusAssessmentDscott.Data.Entities;
 using Microsoft.VisualBasic.FileIO;
 using System;
 using System.Collections.Generic;
@@ -115,9 +116,10 @@ namespace GeniusAssessmentDscott.Core.CSV_Reader
                     }
                 }
 
-                catch (FormatException)
+                catch (FormatException e)
                 {
-
+                    Logger log = new Logger("", nameof(ReadUserCSV));
+                    log.WriteToLog($"{e.Message}");
                     continue;
                 }
 

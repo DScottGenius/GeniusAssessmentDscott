@@ -1,4 +1,5 @@
-﻿using GeniusAssessmentDscott.Data.Entities;
+﻿using DSLogger;
+using GeniusAssessmentDscott.Data.Entities;
 using Microsoft.VisualBasic.FileIO;
 using System;
 using System.Collections.Generic;
@@ -65,9 +66,10 @@ namespace GeniusAssessmentDscott.Core.CSV_Reader
                     Payment payment = new Payment(AdeptRef, amount, date, source, method);
                     payments.Add(payment);
                 }
-                catch (FormatException)
+                catch (FormatException e)
                 {
-
+                    Logger log = new Logger("", nameof(ReadPaymentCSV));
+                    log.WriteToLog(e.Message);
                     continue;
                 }
 
