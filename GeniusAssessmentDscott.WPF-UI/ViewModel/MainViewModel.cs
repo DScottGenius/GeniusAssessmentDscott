@@ -3,6 +3,7 @@ using GeniusAssessmentDscott.WPF_UI.Data;
 using GeniusAssessmentDscott.WPF_UI.WPF_Commands;
 using Microsoft.Win32;
 using System.Collections.ObjectModel;
+using System.Data.SqlClient;
 using System.Windows.Input;
 
 namespace GeniusAssessmentDscott.WPF_UI.ViewModel
@@ -111,13 +112,20 @@ namespace GeniusAssessmentDscott.WPF_UI.ViewModel
 
         public void ProcessData(object value)
         {
-            if (userChecked)
+            try
             {
-                ProcessUser();
+                if (userChecked)
+                {
+                    ProcessUser();
+                }
+                else if (paymentChecked)
+                {
+                    ProcessPayment();
+                }
             }
-            else if (paymentChecked)
+            catch (SqlException)
             {
-                ProcessPayment();
+                Output = "There was an issue connecting to the server, please ensure you are connected to the internet. If this issue persists contact your administrator";
             }
         }
 

@@ -13,7 +13,7 @@ namespace GeniusAssessmentDscott.WPF_UI.Data
         {
 
             userLogic = new UserLogic(filePath);
-
+            
             if (userLogic.success)
             {
                 return userLogic.dbUsers;
